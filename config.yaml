@@ -1,0 +1,38 @@
+name: Github Self-Hosted Runner
+description: A configurable GitHub self-hosted runner for Home Assistant
+url: https://github.com/Baz00k/home-assistant-github-runner
+slug: github_runner
+arch:
+  - amd64
+  - aarch64
+legacy: true
+boot: auto
+startup: application
+timeout: 30
+panel_icon: mdi:github
+panel_title: GitHub Runner
+panel_admin: true
+env:
+  RUNNER_WORKDIR: /data
+options:
+  RUNNER_NAME: home-assistant-runner
+  RUNNER_SCOPE: repo
+schema:
+  RUNNER_NAME: str
+  RUNNER_NAME_PREFIX: str?
+  RANDOM_RUNNER_SUFFIX: str?
+  ACCESS_TOKEN: password?
+  APP_ID: str?
+  APP_PRIVATE_KEY: password?
+  APP_LOGIN: str?
+  RUNNER_SCOPE: list(repo|org|ent)?
+  ORG_NAME: str?
+  ENTERPRISE_NAME: str?
+  LABELS: str?
+  REPO_URL: str?
+  RUNNER_TOKEN: password?
+  RUNNER_GROUP: str?
+  GITHUB_HOST: str?
+  NO_DEFAULT_LABELS: bool?
+image: myoung34/github-runner
+version: ubuntu-focal
